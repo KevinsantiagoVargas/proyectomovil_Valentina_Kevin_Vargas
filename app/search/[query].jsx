@@ -1,11 +1,11 @@
-import { useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
-import { View, Text, FlatList } from "react-native";
+import { useEffect } from "react";
+import { FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import useAppwrite from "../../lib/useAppwrite";
-import { searchPosts } from "../../lib/appwrite";
 import { EmptyState, SearchInput, VideoCard } from "../../components";
+import { searchPosts } from "../../lib/appwrite";
+import useAppwrite from "../../lib/useAppwrite";
 
 const Search = () => {
   const { query } = useLocalSearchParams();
@@ -33,7 +33,7 @@ const Search = () => {
           <>
             <View className="flex my-6 px-4">
               <Text className="font-pmedium text-gray-100 text-sm">
-                Search Results
+              Resultados de la búsqueda
               </Text>
               <Text className="text-2xl font-psemibold text-white mt-1">
                 {query}

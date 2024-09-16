@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { router } from "expo-router";
 import { ResizeMode, Video } from "expo-av";
 import * as DocumentPicker from "expo-document-picker";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
+import { useState } from "react";
 import {
-  View,
-  Text,
   Alert,
   Image,
-  TouchableOpacity,
   ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { icons } from "../../constants";
-import { createVideoPost } from "../../lib/appwrite";
 import { CustomButton, FormField } from "../../components";
+import { icons } from "../../constants";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import { createVideoPost } from "../../lib/appwrite";
 
 const Create = () => {
   const { user } = useGlobalContext();
@@ -63,7 +63,7 @@ const Create = () => {
       !form.thumbnail |
       !form.video
     ) {
-      return Alert.alert("Please provide all fields");
+      return Alert.alert("Por favor proporcione todos los campos");
     }
 
     setUploading(true);
@@ -73,7 +73,7 @@ const Create = () => {
         userId: user.$id,
       });
 
-      Alert.alert("Success", "Post uploaded successfully");
+      Alert.alert("Bien", "Informacion cargada exitosamente");
       router.push("/home");
     } catch (error) {
       Alert.alert("Error", error.message);
@@ -92,19 +92,19 @@ const Create = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView className="px-4 my-6">
-        <Text className="text-2xl text-white font-psemibold">Upload Video</Text>
+        <Text className="text-2xl text-white font-psemibold">Cargar libro</Text>
 
         <FormField
-          title="Video Title"
+          title="Titulo libro"
           value={form.title}
-          placeholder="Give your video a catchy title..."
+          placeholder="Nombre de tu libro"
           handleChangeText={(e) => setForm({ ...form, title: e })}
           otherStyles="mt-10"
         />
 
         <View className="mt-7 space-y-2">
           <Text className="text-base text-gray-100 font-pmedium">
-            Upload Video
+            Cargar Informacion
           </Text>
 
           <TouchableOpacity onPress={() => openPicker("video")}>
@@ -117,7 +117,7 @@ const Create = () => {
                 isLooping
               />
             ) : (
-              <View className="w-full h-40 px-4 bg-black-100 rounded-2xl border border-black-200 flex justify-center items-center">
+              <View className="w-full h-40 px-4 bg-green-800 rounded-2xl border border-black-200 flex justify-center items-center">
                 <View className="w-14 h-14 border border-dashed border-secondary-100 flex justify-center items-center">
                   <Image
                     source={icons.upload}
@@ -133,7 +133,7 @@ const Create = () => {
 
         <View className="mt-7 space-y-2">
           <Text className="text-base text-gray-100 font-pmedium">
-            Thumbnail Image
+            Cargar imagen
           </Text>
 
           <TouchableOpacity onPress={() => openPicker("image")}>
@@ -144,31 +144,23 @@ const Create = () => {
                 className="w-full h-64 rounded-2xl"
               />
             ) : (
-              <View className="w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 flex justify-center items-center flex-row space-x-2">
+              <View className="w-full h-16 px-4 bg-green-800 rounded-2xl border-2 border-black-200 flex justify-center items-center flex-row space-x-2">
                 <Image
                   source={icons.upload}
                   resizeMode="contain"
                   alt="upload"
                   className="w-5 h-5"
                 />
-                <Text className="text-sm text-gray-100 font-pmedium">
-                  Choose a file
+                <Text className="text-sm text-green-800 font-pmedium">
+                  Subir archivo
                 </Text>
               </View>
             )}
           </TouchableOpacity>
         </View>
 
-        <FormField
-          title="AI Prompt"
-          value={form.prompt}
-          placeholder="The AI prompt of your video...."
-          handleChangeText={(e) => setForm({ ...form, prompt: e })}
-          otherStyles="mt-7"
-        />
-
         <CustomButton
-          title="Submit & Publish"
+          title="Subir todos los datos"
           handlePress={submit}
           containerStyles="mt-7"
           isLoading={uploading}

@@ -1,9 +1,9 @@
-import { StatusBar } from "expo-status-bar";
 import { Redirect, Tabs } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { Image, Text, View } from "react-native";
 
-import { icons } from "../../constants";
 import { Loader } from "../../components";
+import { icons } from "../../constants";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const TabIcon = ({ icon, color, name, focused }) => {
@@ -34,13 +34,13 @@ const TabLayout = () => {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: "#FFA001",
+          tabBarActiveTintColor: "black",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: "#161622",
+            backgroundColor: "green",
             borderTopWidth: 1,
-            borderTopColor: "#232533",
+            borderTopColor: "black",
             height: 84,
           },
         }}
@@ -54,7 +54,7 @@ const TabLayout = () => {
               <TabIcon
                 icon={icons.home}
                 color={color}
-                name="Home"
+                name="Inicio"
                 focused={focused}
               />
             ),
@@ -69,7 +69,7 @@ const TabLayout = () => {
               <TabIcon
                 icon={icons.bookmark}
                 color={color}
-                name="Bookmark"
+                name="Catalogo"
                 focused={focused}
               />
             ),
@@ -85,7 +85,7 @@ const TabLayout = () => {
               <TabIcon
                 icon={icons.plus}
                 color={color}
-                name="Create"
+                name="Añadir"
                 focused={focused}
               />
             ),
@@ -100,7 +100,7 @@ const TabLayout = () => {
               <TabIcon
                 icon={icons.profile}
                 color={color}
-                name="Profile"
+                name="Perfil"
                 focused={focused}
               />
             ),
@@ -109,7 +109,7 @@ const TabLayout = () => {
       </Tabs>
 
       <Loader isLoading={loading} />
-      <StatusBar backgroundColor="#161622" style="light" />
+      <StatusBar backgroundColor="white" style="light" />
     </>
   );
 };

@@ -1,10 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
-import { View, Text, Image, ScrollView } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { images } from "../constants";
 import { CustomButton, Loader } from "../components";
+import { images } from "../constants";
 import { useGlobalContext } from "../context/GlobalProvider";
 
 const Welcome = () => {
@@ -36,9 +36,9 @@ const Welcome = () => {
 
           <View className="relative mt-5">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{"\n"}
-              Possibilities with{" "}
-              <Text className="text-secondary-200">Aora</Text>
+              Un lugar unico{"\n"}
+              y de posibilidades{" "}
+              <Text className="text-secondary-200">AUTOBOOKS</Text>
             </Text>
 
             <Image
@@ -49,19 +49,18 @@ const Welcome = () => {
           </View>
 
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Where Creativity Meets Innovation: Embark on a Journey of Limitless
-            Exploration with Aora
+          ¡Bienvenido a tu paraíso literario! Explora un mundo lleno de historias, conocimientos y aventuras esperando a ser descubiertos
           </Text>
 
           <CustomButton
-            title="Continue with Email"
+            title="continuar al correo"
             handlePress={() => router.push("/sign-in")}
             containerStyles="w-full mt-7"
           />
         </View>
       </ScrollView>
 
-      <StatusBar backgroundColor="#161622" style="light" />
+      <StatusBar backgroundColor="white" style="light" />
     </SafeAreaView>
   );
 };

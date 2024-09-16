@@ -4,19 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#161622",
+        primary: "#1B3B1A", // Un verde oscuro para el fondo
         secondary: {
-          DEFAULT: "#FF9C01",
-          100: "#FF9001",
-          200: "#FF8E01",
+          DEFAULT: "#4CAF50", // Verde vibrante
+          100: "#43A047", // Variación de verde más oscuro
+          200: "#388E3C", // Verde más apagado
         },
         black: {
           DEFAULT: "#000",
-          100: "#1E1E2D",
-          200: "#232533",
+          100: "#0D1E0D", // Verde muy oscuro, casi negro
+          200: "#1C3B1C", // Otra variación de verde oscuro
         },
         gray: {
-          100: "#CDCDE0",
+          100: "#A9B9A9", // Gris verdoso suave
         },
       },
       fontFamily: {
@@ -34,3 +34,4 @@ module.exports = {
   },
   plugins: [],
 };
+
